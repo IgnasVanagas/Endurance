@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Oxanium', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Clean Minimalist Styles */
+@layer components {
+  .gradient-text {
+    background: linear-gradient(to right, #F9F295, #E0AA3E, #FAF398, #B88A44);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5rem;
+    letter-spacing: -0.025em;
+  }
+  
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 3.75rem;
+    }
+  }
+  
+  .champion-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(223, 189, 105, 0.2);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .champion-card:hover {
+    border-color: rgba(223, 189, 105, 0.4);
+  }
+  
+  .btn-gold {
+    background: linear-gradient(to right, #DFBD69, #926F34);
+    color: #000000;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-gold:hover {
+    background: linear-gradient(to right, #D4B564, #84633D);
+  }
+  
+  .btn-ghost {
+    border: 1px solid rgba(223, 189, 105, 0.5);
+    color: #DFBD69;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-ghost:hover {
+    background: #DFBD69;
+    color: #000000;
+  }
+  
+  .gold-accent {
+    color: #DFBD69;
+  }
+  
+  .container-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-padding {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  .section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-spacing {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+  
+  .clean-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .clean-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .text-gold {
+    color: #DFBD69;
+  }
+  
+  .border-gold {
+    border-color: #DFBD69;
+  }
+  
+  .bg-gold {
+    background-color: #DFBD69;
+  }
+}
