@@ -1,24 +1,35 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import Navbar from '../components/Navbar'
+import { useState } from 'react'
+import { scrollToSection } from '../utils/scrollUtils'
+import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
 import About from '../components/About'
-import Programs from '../components/Programs'
-import Events from '../components/Events'
-import Contact from '../components/Contact'
+import Services from '../components/Services'
+import Calendar from '../components/Calendar'
+import Athletes from '../components/Athletes'
 import Footer from '../components/Footer'
 
 export default function Home() {
+  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+  const [selectedTime, setSelectedTime] = useState<string | null>(null)
+  const [selectedService, setSelectedService] = useState<string>('')
+
   return (
-    <main className="overflow-hidden">
-      <Navbar />
+    <main className="bg-black text-white">
+      <Navigation scrollToSection={scrollToSection} />
       <Hero />
       <About />
-      <Programs />
-      <Events />
-      <Contact />
+      <Services />
+      <Calendar 
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        selectedTime={selectedTime}
+        setSelectedTime={setSelectedTime}
+        selectedService={selectedService}
+        setSelectedService={setSelectedService}
+      />
+      <Athletes scrollToSection={scrollToSection} />
       <Footer />
     </main>
   )

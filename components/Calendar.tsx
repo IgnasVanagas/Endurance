@@ -1,0 +1,208 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { services } from './Services'
+
+interface CalendarProps {
+  selectedDate: string | null
+  setSelectedDate: (date: string | null) => void
+  selectedTime: string | null
+  setSelectedTime: (time: string | null) => void
+  selectedService: string
+  setSelectedService: (service: string) => void
+}
+
+const availableSlots = {
+  '2025-06-30': ['09:00', '10:00', '11:00', '14:00', '15:00'],
+  '2025-07-01': ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00'],
+  '2025-07-02': ['10:00', '11:00', '14:00', '15:00', '16:00'],
+  '2025-07-03': ['09:00', '10:00', '11:00', '14:00', '15:00'],
+  '2025-07-04': ['09:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+}
+
+export default function Calendar({ 
+  selectedDate, 
+  setSelectedDate, 
+  selectedTime, 
+  setSelectedTime, 
+  selectedService, 
+  setSelectedService 
+}: CalendarProps) {
+  const generateCalendarDays = (): Date[] => {
+    const days: Date[] = []
+    const today = new Date()
+    for (let i = 0; i < 21; i++) {
+      const date = new Date(today)
+      date.setDate(today.getDate() + i)
+      days.push(date)
+    }
+    return days
+  }
+
+  const formatDate = (date: Date) => {
+    return date.toISOString().split('T')[0]
+  }
+
+  const handleBooking = () => {
+    if (!selectedDate || !selectedTime || !selectedService) {
+      alert('Prašome pasirinkti datą, laiką ir paslaugą')
+      return
+    }
+    alert(`Užsakymas patvirtintas:\nPaslauga: ${selectedService}\nData: ${selectedDate}\nLaikas: ${selectedTime}`)
+  }
+
+  const calendarDays = generateCalendarDays()
+
+  return (
+    <section id="calendar" className="py-20 bg-gradient-to-r from-black via-gray-900 to-black">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-8">
+            Užsakymų <span className="gradient-text">Kalendorius</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Pasirinkite jums tinkamą laiką ir užsiregistruokite
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Calendar */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">Pasirinkite datą</h3>
+            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-6 border border-gray-700/50">
+              <div className="grid grid-cols-7 gap-2 mb-4">
+                {['Pr', 'An', 'Tr', 'Kt', 'Pn', 'Št', 'Sk'].map(day => (
+                  <div key={day} className="text-center text-sm font-semibold text-gray-400 p-2">
+                    {day}
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-2">
+                {calendarDays.map((date, index) => {
+                  const dateString = formatDate(date)
+                  const hasSlots = availableSlots[dateString as keyof typeof availableSlots]
+                  const isSelected = selectedDate === dateString
+                  
+                  return (
+                    <motion.button
+                      key={index}
+                      onClick={() => hasSlots && setSelectedDate(dateString)}
+                      className={`p-3 rounded-lg text-sm font-medium transition-all ${
+                        isSelected 
+                          ? 'bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black'
+                          : hasSlots 
+                            ? 'bg-gray-800 text-white hover:bg-gray-700'
+                            : 'bg-gray-900 text-gray-500 cursor-not-allowed'
+                      }`}
+                      disabled={!hasSlots}
+                      whileHover={hasSlots ? { scale: 1.05 } : {}}
+                    >
+                      {date.getDate()}
+                    </motion.button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Time Slots */}
+            {selectedDate && availableSlots[selectedDate as keyof typeof availableSlots] && (
+              <div className="mt-6">
+                <h4 className="text-xl font-bold mb-4 text-[#DFBD69]">Pasirinkite laiką</h4>
+                <div className="grid grid-cols-3 gap-3">
+                  {availableSlots[selectedDate as keyof typeof availableSlots].map(time => (
+                    <button
+                      key={time}
+                      onClick={() => setSelectedTime(time)}
+                      className={`p-3 rounded-lg font-medium transition-all ${
+                        selectedTime === time
+                          ? 'bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black'
+                          : 'bg-gray-800 text-white hover:bg-gray-700'
+                      }`}
+                    >
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Booking Form */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">Užsakymo informacija</h3>
+            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-6 border border-gray-700/50">
+              {/* Service Selection */}
+              <div className="mb-6">
+                <label className="block text-sm font-semibold mb-3 text-[#DFBD69]">
+                  Paslauga
+                </label>
+                <select
+                  value={selectedService}
+                  onChange={(e) => setSelectedService(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                >
+                  <option value="">Pasirinkite paslaugą</option>
+                  {services.map(service => (
+                    <option key={service.id} value={service.name}>{service.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Selected Details */}
+              <div className="mb-6 p-4 bg-black/40 rounded-lg border border-[#DFBD69]/30">
+                <h4 className="font-semibold mb-2 text-[#DFBD69]">Pasirinkta:</h4>
+                <div className="space-y-1 text-sm">
+                  <div>Data: <span className="text-[#DFBD69]">{selectedDate || 'Nepasirinkta'}</span></div>
+                  <div>Laikas: <span className="text-[#DFBD69]">{selectedTime || 'Nepasirinktas'}</span></div>
+                  <div>Paslauga: <span className="text-[#DFBD69]">{selectedService || 'Nepasirinkta'}</span></div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="space-y-4 mb-6">
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
+                    Vardas, pavardė
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    placeholder="Jūsų vardas ir pavardė"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
+                    El. paštas
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    placeholder="jusu@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
+                    Telefono numeris
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    placeholder="+370 XXX XXXXX"
+                  />
+                </div>
+              </div>
+
+              {/* Booking Button */}
+              <button
+                onClick={handleBooking}
+                className="w-full bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black py-4 rounded-xl font-semibold transition-all hover:scale-105"
+              >
+                Patvirtinti užsakymą
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
