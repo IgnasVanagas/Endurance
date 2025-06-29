@@ -1,58 +1,43 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const services = [
-  {
-    id: 1,
-    name: 'Dienos stovykla vaikams',
-    price: '45€',
-    duration: '1 diena',
-    description: 'Visą dieną trunkanti sporto stovykla vaikams nuo 6 iki 16 metų',
-    features: [
-      'Profesionalūs treneriai',
-      'Sporto inventorius',
-      'Pietūs ir užkandžiai',
-      'Sporto draudimas',
-      'Pažymėjimas'
-    ],
-    popular: true
-  },
-  {
-    id: 2,
-    name: 'Savaitės stovykla',
-    price: '180€',
-    duration: '5 dienos',
-    description: 'Intensyvi savaitės sporto stovykla su nuosekliu mokymu',
-    features: [
-      'Individualus planas',
-      'Kasdieniai pietūs',
-      'Sporto apranga',
-      'Varžybų simuliacija',
-      'Atsiskaitymo turnyras'
-    ],
-    popular: false
-  },
-  {
-    id: 3,
-    name: 'Mėnesio narystė',
-    price: '60€',
-    duration: '30 dienų',
-    description: 'Neriboto lankymo narystė su prieiga prie visų treniruočių',
-    features: [
-      'Neriboti lankymai',
-      'Grupės treniruotės',
-      'Sporto salė 24/7',
-      'Asmeninis treneris',
-      'Mitybos konsultacijos'
-    ],
-    popular: false
-  }
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Services() {
+  const { t, tArray } = useLanguage()
+
+  const services = [
+    {
+      id: 1,
+      name: t('service.1.name'),
+      price: '45€',
+      duration: t('service.1.duration'),
+      description: t('service.1.description'),
+      features: tArray('service.1.features'),
+      popular: true
+    },
+    {
+      id: 2,
+      name: t('service.2.name'),
+      price: '180€',
+      duration: t('service.2.duration'),
+      description: t('service.2.description'),
+      features: tArray('service.2.features'),
+      popular: false
+    },
+    {
+      id: 3,
+      name: t('service.3.name'),
+      price: '60€',
+      duration: t('service.3.duration'),
+      description: t('service.3.description'),
+      features: tArray('service.3.features'),
+      popular: false
+    }
+  ]
+
   const handlePayment = (service: any) => {
-    alert(`Mokėjimo sistema: ${service.name} - ${service.price}`)
+    alert(`${t('services.payment')} ${service.name} - ${service.price}`)
   }
 
   return (
@@ -60,10 +45,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-8">
-            Mūsų <span className="gradient-text">Paslaugos</span>
+            {t('services.title')} <span className="gradient-text">{t('services.title.highlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Pasirinkite jums tinkamiausią sporto programą
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -84,7 +69,7 @@ export default function Services() {
               {service.popular && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black px-2 py-1 rounded-full text-xs font-bold">
-                    POPULIARI
+                    {t('services.popular')}
                   </span>
                 </div>
               )}
@@ -108,7 +93,7 @@ export default function Services() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="font-semibold mb-3 text-[#DFBD69]">Kas įskaičiuota:</h4>
+                  <h4 className="font-semibold mb-3 text-[#DFBD69]">{t('services.included')}</h4>
                   <ul className="space-y-2">
                     {service.features.map((feature, fIndex) => (
                       <li key={fIndex} className="flex items-center text-sm text-gray-300">
@@ -131,7 +116,7 @@ export default function Services() {
                         : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                     }`}
                   >
-                    Užsakyti dabar
+                    {t('services.order')}
                   </button>
                   
                 </div>
@@ -144,4 +129,36 @@ export default function Services() {
   )
 }
 
-export { services }
+// Export services for use in Calendar component
+export const getServices = () => {
+  const { t, tArray } = useLanguage()
+  return [
+    {
+      id: 1,
+      name: t('service.1.name'),
+      price: '45€',
+      duration: t('service.1.duration'),
+      description: t('service.1.description'),
+      features: tArray('service.1.features'),
+      popular: true
+    },
+    {
+      id: 2,
+      name: t('service.2.name'),
+      price: '180€',
+      duration: t('service.2.duration'),
+      description: t('service.2.description'),
+      features: tArray('service.2.features'),
+      popular: false
+    },
+    {
+      id: 3,
+      name: t('service.3.name'),
+      price: '60€',
+      duration: t('service.3.duration'),
+      description: t('service.3.description'),
+      features: tArray('service.3.features'),
+      popular: false
+    }
+  ]
+}

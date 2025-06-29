@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
+  
   return (
     <section className="relative bg-black text-white min-h-screen flex items-center overflow-hidden">
       {/* Background Video */}
@@ -27,13 +30,15 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              <span className="text-[#DFBD69]">FASTER</span>
-              <br />
-              ENDURANCE
-            </h1>
+            <div className="mb-6">
+              <img 
+                src="/faster-vektoriniai-07.png" 
+                alt="Faster Endurance" 
+                className="h-24 md:h-32 w-auto"
+              />
+            </div>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              Ištvermės sporto klubas, kuriame formuojami ateities čempionai
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
@@ -41,14 +46,14 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#DFBD69] text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#DFBD69]/90 transition-colors"
               >
-                Pradėti treniruotes
+                {t('hero.start')}
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-[#DFBD69] text-[#DFBD69] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#DFBD69] hover:text-black transition-colors"
               >
-                Sužinoti daugiau
+                {t('hero.learn')}
               </motion.button>
             </div>
           </motion.div>
@@ -62,19 +67,19 @@ export default function Hero() {
           >
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">500+</div>
-              <div className="text-gray-300">Aktyvūs nariai</div>
+              <div className="text-gray-300">{t('hero.members')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">15+</div>
-              <div className="text-gray-300">Metų patirtis</div>
+              <div className="text-gray-300">{t('hero.experience')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">50+</div>
-              <div className="text-gray-300">Medaliai</div>
+              <div className="text-gray-300">{t('hero.medals')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">95%</div>
-              <div className="text-gray-300">Sėkmės rodiklis</div>
+              <div className="text-gray-300">{t('hero.success')}</div>
             </div>
           </motion.div>
         </div>

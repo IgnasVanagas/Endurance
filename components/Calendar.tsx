@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { services } from './Services'
+import { useLanguage } from '../context/LanguageContext'
 
 interface CalendarProps {
   selectedDate: string | null
@@ -28,6 +28,37 @@ export default function Calendar({
   selectedService, 
   setSelectedService 
 }: CalendarProps) {
+  const { t, tArray } = useLanguage()
+
+  const services = [
+    {
+      id: 1,
+      name: t('service.1.name'),
+      price: '45€',
+      duration: t('service.1.duration'),
+      description: t('service.1.description'),
+      features: tArray('service.1.features'),
+      popular: true
+    },
+    {
+      id: 2,
+      name: t('service.2.name'),
+      price: '180€',
+      duration: t('service.2.duration'),
+      description: t('service.2.description'),
+      features: tArray('service.2.features'),
+      popular: false
+    },
+    {
+      id: 3,
+      name: t('service.3.name'),
+      price: '60€',
+      duration: t('service.3.duration'),
+      description: t('service.3.description'),
+      features: tArray('service.3.features'),
+      popular: false
+    }
+  ]
   const generateCalendarDays = (): Date[] => {
     const days: Date[] = []
     const today = new Date()
@@ -45,10 +76,10 @@ export default function Calendar({
 
   const handleBooking = () => {
     if (!selectedDate || !selectedTime || !selectedService) {
-      alert('Prašome pasirinkti datą, laiką ir paslaugą')
+      alert(t('calendar.alert.select'))
       return
     }
-    alert(`Užsakymas patvirtintas:\nPaslauga: ${selectedService}\nData: ${selectedDate}\nLaikas: ${selectedTime}`)
+    alert(`${t('calendar.alert.confirmed')}\n${t('calendar.service')}: ${selectedService}\n${t('calendar.date')} ${selectedDate}\n${t('calendar.time')} ${selectedTime}`)
   }
 
   const calendarDays = generateCalendarDays()
@@ -58,20 +89,20 @@ export default function Calendar({
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-8">
-            Užsakymų <span className="gradient-text">Kalendorius</span>
+            {t('calendar.title')} <span className="gradient-text">{t('calendar.title.highlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Pasirinkite jums tinkamą laiką ir užsiregistruokite
+            {t('calendar.subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Calendar */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">Pasirinkite datą</h3>
+            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">{t('calendar.select.date')}</h3>
             <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-6 border border-gray-700/50">
               <div className="grid grid-cols-7 gap-2 mb-4">
-                {['Pr', 'An', 'Tr', 'Kt', 'Pn', 'Št', 'Sk'].map(day => (
+                {tArray('calendar.days').map(day => (
                   <div key={day} className="text-center text-sm font-semibold text-gray-400 p-2">
                     {day}
                   </div>
@@ -107,7 +138,7 @@ export default function Calendar({
             {/* Time Slots */}
             {selectedDate && availableSlots[selectedDate as keyof typeof availableSlots] && (
               <div className="mt-6">
-                <h4 className="text-xl font-bold mb-4 text-[#DFBD69]">Pasirinkite laiką</h4>
+                <h4 className="text-xl font-bold mb-4 text-[#DFBD69]">{t('calendar.select.time')}</h4>
                 <div className="grid grid-cols-3 gap-3">
                   {availableSlots[selectedDate as keyof typeof availableSlots].map(time => (
                     <button
@@ -129,19 +160,19 @@ export default function Calendar({
 
           {/* Booking Form */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">Užsakymo informacija</h3>
+            <h3 className="text-2xl font-bold mb-6 text-[#DFBD69]">{t('calendar.booking.info')}</h3>
             <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-6 border border-gray-700/50">
               {/* Service Selection */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold mb-3 text-[#DFBD69]">
-                  Paslauga
+                  {t('calendar.service')}
                 </label>
                 <select
                   value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
                 >
-                  <option value="">Pasirinkite paslaugą</option>
+                  <option value="">{t('calendar.select.service')}</option>
                   {services.map(service => (
                     <option key={service.id} value={service.name}>{service.name}</option>
                   ))}
@@ -150,11 +181,11 @@ export default function Calendar({
 
               {/* Selected Details */}
               <div className="mb-6 p-4 bg-black/40 rounded-lg border border-[#DFBD69]/30">
-                <h4 className="font-semibold mb-2 text-[#DFBD69]">Pasirinkta:</h4>
+                <h4 className="font-semibold mb-2 text-[#DFBD69]">{t('calendar.selected')}</h4>
                 <div className="space-y-1 text-sm">
-                  <div>Data: <span className="text-[#DFBD69]">{selectedDate || 'Nepasirinkta'}</span></div>
-                  <div>Laikas: <span className="text-[#DFBD69]">{selectedTime || 'Nepasirinktas'}</span></div>
-                  <div>Paslauga: <span className="text-[#DFBD69]">{selectedService || 'Nepasirinkta'}</span></div>
+                  <div>{t('calendar.date')} <span className="text-[#DFBD69]">{selectedDate || 'Nepasirinkta'}</span></div>
+                  <div>{t('calendar.time')} <span className="text-[#DFBD69]">{selectedTime || 'Nepasirinktas'}</span></div>
+                  <div>{t('calendar.service')}: <span className="text-[#DFBD69]">{selectedService || 'Nepasirinkta'}</span></div>
                 </div>
               </div>
 
@@ -162,32 +193,32 @@ export default function Calendar({
               <div className="space-y-4 mb-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
-                    Vardas, pavardė
+                    {t('calendar.name')}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
-                    placeholder="Jūsų vardas ir pavardė"
+                    placeholder={t('calendar.name.placeholder')}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
-                    El. paštas
+                    {t('calendar.email')}
                   </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
-                    placeholder="jusu@email.com"
+                    placeholder={t('calendar.email.placeholder')}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-[#DFBD69]">
-                    Telefono numeris
+                    {t('calendar.phone')}
                   </label>
                   <input
                     type="tel"
                     className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
-                    placeholder="+370 XXX XXXXX"
+                    placeholder={t('calendar.phone.placeholder')}
                   />
                 </div>
               </div>
@@ -197,7 +228,7 @@ export default function Calendar({
                 onClick={handleBooking}
                 className="w-full bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black py-4 rounded-xl font-semibold transition-all hover:scale-105"
               >
-                Patvirtinti užsakymą
+                {t('calendar.confirm')}
               </button>
             </div>
           </div>

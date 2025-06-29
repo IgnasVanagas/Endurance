@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
+  
   return (
     <section id="about" className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,12 +17,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-8">
-            Apie mus
+            {t('about.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Faster Endurance - tai ne tik sporto klubas, tai bendruomenė, siekianti 
-            aukščiausių rezultatų ištvermės sporto šakose. Mūsų misija - padėti 
-            kiekvienam sportininkui atsiskleisti ir pasiekti savo tikslus.
+            {t('about.description')}
           </p>
         </motion.div>
 
@@ -32,9 +33,9 @@ export default function About() {
             className="text-center"
           >
             <div className="text-4xl text-[#DFBD69] mb-4">🏃‍♂️</div>
-            <h3 className="text-xl font-bold mb-4">Profesionalūs treneriai</h3>
+            <h3 className="text-xl font-bold mb-4">{t('about.trainers')}</h3>
             <p className="text-gray-300">
-              Mūsų komandą sudaro patyrę treneriai su tarptautiniu pripažinimu
+              {t('about.trainers.desc')}
             </p>
           </motion.div>
 
@@ -46,9 +47,9 @@ export default function About() {
             className="text-center"
           >
             <div className="text-4xl text-[#DFBD69] mb-4">🏆</div>
-            <h3 className="text-xl font-bold mb-4">Įrodyta metodika</h3>
+            <h3 className="text-xl font-bold mb-4">{t('about.methodology')}</h3>
             <p className="text-gray-300">
-              Naudojame mokslu pagrįstas treniruočių metodikas ir naują technologijas
+              {t('about.methodology.desc')}
             </p>
           </motion.div>
 
@@ -60,9 +61,9 @@ export default function About() {
             className="text-center"
           >
             <div className="text-4xl text-[#DFBD69] mb-4">👥</div>
-            <h3 className="text-xl font-bold mb-4">Stipri bendruomenė</h3>
+            <h3 className="text-xl font-bold mb-4">{t('about.community')}</h3>
             <p className="text-gray-300">
-              Prisijunk prie aktyvios sportininkų bendruomenės ir atrask naujų draugų
+              {t('about.community.desc')}
             </p>
           </motion.div>
         </div>
