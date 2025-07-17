@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { useServices } from '../utils/servicesData'
 
 interface CalendarProps {
   selectedDate: string | null
@@ -29,36 +30,8 @@ export default function Calendar({
   setSelectedService 
 }: CalendarProps) {
   const { t, tArray } = useLanguage()
+  const services = useServices()
 
-  const services = [
-    {
-      id: 1,
-      name: t('service.1.name'),
-      price: '45€',
-      duration: t('service.1.duration'),
-      description: t('service.1.description'),
-      features: tArray('service.1.features'),
-      popular: true
-    },
-    {
-      id: 2,
-      name: t('service.2.name'),
-      price: '180€',
-      duration: t('service.2.duration'),
-      description: t('service.2.description'),
-      features: tArray('service.2.features'),
-      popular: false
-    },
-    {
-      id: 3,
-      name: t('service.3.name'),
-      price: '60€',
-      duration: t('service.3.duration'),
-      description: t('service.3.description'),
-      features: tArray('service.3.features'),
-      popular: false
-    }
-  ]
   const generateCalendarDays = (): Date[] => {
     const days: Date[] = []
     const today = new Date()
@@ -88,7 +61,7 @@ export default function Calendar({
     <section id="calendar" className="py-20 bg-gradient-to-r from-black via-gray-900 to-black">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-8">
+          <h2 className="text-4xl font-bold mb-8 leading-tight">
             {t('calendar.title')} <span className="gradient-text">{t('calendar.title.highlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero() {
@@ -19,67 +20,42 @@ export default function Hero() {
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-[#DFBD69]/20"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
+        <div className="flex items-center justify-center min-h-[70vh]">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center max-w-5xl mx-auto"
           >
-            <div className="mb-6">
-              <img 
-                src="/faster-vektoriniai-07.png" 
-                alt="Faster Endurance" 
-                className="h-24 md:h-32 w-auto"
-              />
+            <div className="mb-8">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+                <span className="gradient-text">Faster</span>
+                <br />
+                <span className="text-white">Endurance</span>
+              </h1>
             </div>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto">
               {t('hero.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#DFBD69] text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#DFBD69]/90 transition-colors"
               >
-                {t('hero.start')}
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-[#DFBD69] text-[#DFBD69] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#DFBD69] hover:text-black transition-colors"
-              >
-                {t('hero.learn')}
-              </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Right side - Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-2 gap-8"
-          >
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">500+</div>
-              <div className="text-gray-300">{t('hero.members')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">15+</div>
-              <div className="text-gray-300">{t('hero.experience')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">50+</div>
-              <div className="text-gray-300">{t('hero.medals')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#DFBD69] mb-2">95%</div>
-              <div className="text-gray-300">{t('hero.success')}</div>
+                <Link
+                  href="#contact"
+                  className="inline-block bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black px-24 py-5 rounded-xl font-semibold text-lg hover:from-[#926F34] hover:to-[#DFBD69] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#DFBD69]/20"
+                >
+                  {t('hero.learn')}
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>

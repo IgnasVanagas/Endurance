@@ -14,16 +14,17 @@ interface LanguageContextType {
 const translations = {
   lt: {
     // Navigation
+    'nav.home': 'Pradžia',
     'nav.about': 'Apie mus',
-    'nav.services': 'Paslaugos',
-    'nav.calendar': 'Tvarkaraštis',
-    'nav.athletes': 'Sportininkai',
+    'nav.services': 'Kainoraštis',
+    'nav.calendar': 'Rezervacija',
+    'nav.athletes': 'Atletai',
     'nav.contact': 'Kontaktai',
     
     // Hero
-    'hero.subtitle': 'Ištvermės sporto klubas, kuriame formuojami ateities čempionai',
+    'hero.subtitle': 'Sveiki atvykę į „Faster" ištvermės studiją – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas.',
     'hero.start': 'Pradėti treniruotes',
-    'hero.learn': 'Sužinoti daugiau',
+    'hero.learn': 'Kontaktai',
     'hero.members': 'Aktyvūs nariai',
     'hero.experience': 'Metų patirtis',
     'hero.medals': 'Medaliai',
@@ -31,16 +32,20 @@ const translations = {
     
     // About
     'about.title': 'Apie mus',
-    'about.description': 'Faster Endurance - tai ne tik sporto klubas, tai bendruomenė, siekianti aukščiausių rezultatų ištvermės sporto šakose. Mūsų misija - padėti kiekvienam sportininkui atsiskleisti ir pasiekti savo tikslus.',
-    'about.trainers': 'Profesionalūs treneriai',
-    'about.trainers.desc': 'Mūsų komandą sudaro patyrę treneriai su tarptautiniu pripažinimu',
-    'about.methodology': 'Įrodyta metodika',
-    'about.methodology.desc': 'Naudojame mokslu pagrįstas treniruočių metodikas ir naują technologijas',
-    'about.community': 'Stipri bendruomenė',
-    'about.community.desc': 'Prisijunk prie aktyvios sportininkų bendruomenės ir atrask naujų draugų',
+    'about.description': 'Sveiki atvykę į „Faster" ištvermės studiją – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas. Tai ne paprastas sporto klubas, o erdvė tiems, kurie siekia geriausių rezultatų. Nesvarbu, ar sieki asmeninio rekordo, ruošiesi varžyboms, ar tiesiog bandai savo galimybes – „Faster" bus tavo patikimas partneris kelyje į aukščiausią sportinį lygį.',
+    'about.innovation': 'Mokslas ir inovacijos',
+    'about.innovation.desc': '„Faster" tikime, kad ribos skirtos peržengti – ne tik greičio ar ištvermės, bet ir to, ką žmogaus kūnas iš tikrųjų gali pasiekti. Mūsų laboratorija – tai vieta, kur pažangios technologijos susitinka su aistra ištvermės sportui.',
+    'about.history': 'Mokslas keičia sportą',
+    'about.history.desc': 'Mokslas ir technologijos ne kartą pakeitė ištvermės sportą: nuo Rogerio Bannisterio, kuris įveikė 4 minučių mylios barjerą su intervalinėmis treniruotėmis ir blokine periodizacija; Grego LeMondo pergalės „Tour de France" su aerodinaminiu vairu; Graeme\'o Obree valandos rekordų su savo dviračiu „Old Faithful" ir naujomis važiavimo pozicijomis; iki „Team Sky" dominavimo su tiksliomis, galia paremtomis treniruotėmis ir Olavo Aleksanderio Bu norvegiško metodo, kuris padėjo Kristianui Blummenfeldui bei Gustavui Idenui laimėti olimpinį auksą ir pagerinti „Ironman" rekordus.',
+    'about.access': 'Prieiga visiems',
+    'about.access.desc': '„Faster" leidžia visų lygių sportininkams naudotis tomis pačiomis pažangiomis testavimo ir treniruočių priemonėmis.',
+    'about.philosophy': 'Mūsų filosofija'.normalize('NFC'),
+    'about.philosophy.desc': 'Įkvėpimo semiamės iš geriausių, bet kuriame aplinką, kur asmeniniai proveržiai vertinami lygiai kaip pergalės ant pakylos. Tikime, kad tikrasis potencialas dažnai slypi giliau ir gali būti atskleistas su mokslo bei protingos treniruočių sistemos pagalba.',
+    'about.conclusion': 'Tavo kelias',
+    'about.conclusion.desc': 'Nesvarbu, ar nori greičiau plaukti, gauti daugiau galios dviratyje, ar finišuoti stipresnis nei bet kada – „Faster" yra čia, kad padėtų tau pasiekti tai, ką iš tiesų gali.',
     
     // Services
-    'services.title': 'Mūsų',
+    'services.title': 'Mūsų'.normalize('NFC'),
     'services.title.highlight': 'Paslaugos',
     'services.subtitle': 'Pasirinkite jums tinkamiausią sporto programą',
     'services.popular': 'POPULIARI',
@@ -72,7 +77,7 @@ const translations = {
     'calendar.days': ['Pr', 'An', 'Tr', 'Kt', 'Pn', 'Št', 'Sk'],
     
     // Athletes
-    'athletes.title': 'Mūsų',
+    'athletes.title': 'Mūsų'.normalize('NFC'),
     'athletes.title.highlight': 'Atletai',
     'athletes.subtitle': 'Susipažinkite su mūsų klubo čempionais ir jų sėkmės istorijomis',
     'athletes.competitions': 'Varžybos',
@@ -118,24 +123,39 @@ const translations = {
     'service.3.description': 'Neriboto lankymo narystė su prieiga prie visų treniruočių',
     'service.3.features': ['Neriboti lankymai', 'Grupės treniruotės', 'Sporto salė 24/7', 'Asmeninis treneris', 'Mitybos konsultacijos'],
     
+    // Contact
+    'contact.subtitle': 'Susisiekite su mumis dėl treniruočių, konsultacijų ar bet kokių klausimų. Esame čia, kad padėtume jums pasiekti savo tikslus.',
+    'contact.address': 'Adresas',
+    'contact.phone': 'Telefonas',
+    'contact.email': 'El. paštas',
+    'contact.form.title': 'Parašykite mums',
+    'contact.form.name': 'Vardas',
+    'contact.form.name.placeholder': 'Jūsų vardas',
+    'contact.form.email': 'El. paštas',
+    'contact.form.email.placeholder': 'jusu@email.com',
+    'contact.form.message': 'Žinutė',
+    'contact.form.message.placeholder': 'Jūsų žinutė...',
+    'contact.form.submit': 'Siųsti žinutę',
+    
     // Footer
     'footer.description': 'Faster Endurance - jūsų kelias į aukščiausius sporto pasiekimus. Prisijunkite prie mūsų bendruomenės ir atsiskleiskite savo potencialą.',
-    'footer.quick.links': 'Greiti nuorodai',
+    'footer.quick.links': 'Nuorodos',
     'footer.contact': 'Kontaktai',
     'footer.rights': 'Visos teisės saugomos.',
   },
   en: {
     // Navigation
+    'nav.home': 'Home',
     'nav.about': 'About Us',
-    'nav.services': 'Services',
-    'nav.calendar': 'Schedule',
+    'nav.services': 'Pricing',
+    'nav.calendar': 'Booking',
     'nav.athletes': 'Athletes',
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.subtitle': 'Endurance sports club where future champions are formed',
+    'hero.subtitle': 'Welcome to Faster Endurance Studio—where science, technology, and human ambition converge to redefine athletic performance.',
     'hero.start': 'Start Training',
-    'hero.learn': 'Learn More',
+    'hero.learn': 'Contact',
     'hero.members': 'Active Members',
     'hero.experience': 'Years Experience',
     'hero.medals': 'Medals',
@@ -143,13 +163,17 @@ const translations = {
     
     // About
     'about.title': 'About Us',
-    'about.description': 'Faster Endurance is not just a sports club, it\'s a community striving for the highest results in endurance sports. Our mission is to help every athlete unlock their potential and achieve their goals.',
-    'about.trainers': 'Professional Trainers',
-    'about.trainers.desc': 'Our team consists of experienced trainers with international recognition',
-    'about.methodology': 'Proven Methodology',
-    'about.methodology.desc': 'We use science-based training methods and new technologies',
-    'about.community': 'Strong Community',
-    'about.community.desc': 'Join our active community of athletes and discover new friends',
+    'about.description': 'Welcome to Faster Endurance Studio—where science, technology, and human ambition converge to redefine athletic performance. This isn\'t just a sports club; it\'s a sanctuary for the relentless in pursuit of peak human potential. Whether you\'re chasing a personal best, preparing for your next race, or simply exploring your limits, Faster is your ultimate partner in performance.',
+    'about.innovation': 'Science and Innovation',
+    'about.innovation.desc': 'At Faster, we believe in breaking boundaries—not just of speed or stamina, but of what the human body is capable of. Our lab is a playground for innovation, blending state-of-the-art technology with a deep passion for endurance sports.',
+    'about.history': 'Science Changes Sport',
+    'about.history.desc': 'Science and technology have revolutionized endurance sports time and time again: from Roger Bannister breaking the 4-minute mile barrier through the introduction of block periodization and interval training; to Greg LeMond\'s Tour de France victory using aero bars in a final time trial; to Graeme Obree\'s hour records on a self-built Old Faithful bike with revolutionary riding positions; to Team Sky\'s dominance through meticulous, power-based training; to Olav Aleksander Bu\'s metabolic optimization using the Norwegian method, helping athletes like Kristian Blummenfelt and Gustav Iden win Olympic gold and set Ironman records.',
+    'about.access': 'Access for All',
+    'about.access.desc': 'At Faster Endurance Studio, we make that same level of innovation and precision available to athletes of all levels through cutting-edge testing and smart, science-backed training.',
+    'about.philosophy': 'Our Philosophy',
+    'about.philosophy.desc': 'We look to the greats for inspiration and deliver the precision, insight, and innovation needed to chase records and redefine what\'s possible. At the same time, we foster an environment where personal breakthroughs are celebrated—because we believe true potential often lies beneath the surface, waiting to be unlocked through science and intelligent training.',
+    'about.conclusion': 'Your Journey',
+    'about.conclusion.desc': 'Whether your goal is to shave seconds off your swim split, conquer the bike leg with newfound power, or run across the finish line stronger than ever, Faster Endurance Studio is here to guide you. Because at Faster, we don\'t just help you train—we help you uncover what you\'re truly capable of.',
     
     // Services
     'services.title': 'Our',
@@ -230,9 +254,23 @@ const translations = {
     'service.3.description': 'Unlimited access membership to all training sessions',
     'service.3.features': ['Unlimited visits', 'Group training', '24/7 gym access', 'Personal trainer', 'Nutrition consultations'],
     
+    // Contact
+    'contact.subtitle': 'Get in touch with us for training, consultations, or any questions. We are here to help you achieve your goals.',
+    'contact.address': 'Address',
+    'contact.phone': 'Phone',
+    'contact.email': 'Email',
+    'contact.form.title': 'Send us a message',
+    'contact.form.name': 'Name',
+    'contact.form.name.placeholder': 'Your name',
+    'contact.form.email': 'Email',
+    'contact.form.email.placeholder': 'your@email.com',
+    'contact.form.message': 'Message',
+    'contact.form.message.placeholder': 'Your message...',
+    'contact.form.submit': 'Send Message',
+    
     // Footer
     'footer.description': 'Faster Endurance - your path to the highest sports achievements. Join our community and unlock your potential.',
-    'footer.quick.links': 'Quick Links',
+    'footer.quick.links': 'Links',
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',
   }

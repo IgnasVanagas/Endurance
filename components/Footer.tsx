@@ -49,10 +49,29 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold text-[#DFBD69] mb-4">{t('footer.contact')}</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>📧 info@fasterendurance.lt</li>
-              <li>📞 +370 600 12345</li>
-              <li>📍 Vilnius, Lietuva</li>
+            <ul className="space-y-4 text-gray-400">
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 text-[#DFBD69] text-lg">📍</span>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium mb-1">Adresas</span>
+                  <span className="text-sm leading-relaxed">Didžioji g. 13-9</span>
+                  <span className="text-sm">LT-01128 Vilnius</span>
+                </div>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 text-[#DFBD69] text-lg">📞</span>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium mb-1">Telefonas</span>
+                  <span className="text-sm">+37060505649</span>
+                </div>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 text-[#DFBD69] text-lg">📧</span>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium mb-1">El. paštas</span>
+                  <span className="text-sm">info@faster.fitness</span>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

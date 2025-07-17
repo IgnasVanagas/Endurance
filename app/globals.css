@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+/* Import Google Fonts with full character support */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap&subset=latin,latin-ext');
 
 * {
   margin: 0;
@@ -15,21 +16,53 @@ html {
 }
 
 body {
-  font-family: 'Oxanium', sans-serif;
   background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;
   line-height: 1.6;
+  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "dlig" 1;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-synthesis: none;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-/* Clean Minimalist Styles */
+/* Clean Minimalist Styles with Gold Gradients */
 @layer components {
   .gradient-text {
-    background: linear-gradient(to right, #F9F295, #E0AA3E, #FAF398, #B88A44);
+    background: linear-gradient(135deg, #F9F295, #E0AA3E, #DFBD69, #926F34);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
+    animation: gradientShift 3s ease-in-out infinite;
+    line-height: 1.2;
+    display: inline-block;
+    padding: 0.1em 0;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #DFBD69, #926F34, #B88A44);
+  }
+  
+  .bg-gold-gradient-soft {
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.1), rgba(146, 111, 52, 0.05));
+  }
+  
+  .border-gold-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #DFBD69, #926F34) 1;
   }
   
   .section-title {
@@ -38,6 +71,10 @@ body {
     text-align: center;
     margin-bottom: 5rem;
     letter-spacing: -0.025em;
+    line-height: 1.2;
+    padding: 0.2em 0;
+    display: inline-block;
+    width: 100%;
   }
   
   @media (min-width: 768px) {
@@ -47,44 +84,51 @@ body {
   }
   
   .champion-card {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(223, 189, 105, 0.2);
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.1), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(223, 189, 105, 0.3);
     border-radius: 0.75rem;
     padding: 2rem;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
   }
   
   .champion-card:hover {
-    border-color: rgba(223, 189, 105, 0.4);
+    border-color: rgba(223, 189, 105, 0.6);
+    box-shadow: 0 20px 40px rgba(223, 189, 105, 0.1);
+    transform: translateY(-4px);
   }
   
   .btn-gold {
-    background: linear-gradient(to right, #DFBD69, #926F34);
+    background: linear-gradient(135deg, #DFBD69, #926F34);
     color: #000000;
     font-weight: 600;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(223, 189, 105, 0.2);
   }
   
   .btn-gold:hover {
-    background: linear-gradient(to right, #D4B564, #84633D);
+    background: linear-gradient(135deg, #926F34, #DFBD69);
+    box-shadow: 0 8px 25px rgba(223, 189, 105, 0.4);
+    transform: translateY(-2px);
   }
   
   .btn-ghost {
-    border: 1px solid rgba(223, 189, 105, 0.5);
+    border: 2px solid rgba(223, 189, 105, 0.6);
     color: #DFBD69;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
+    background: transparent;
   }
   
   .btn-ghost:hover {
-    background: #DFBD69;
+    background: linear-gradient(135deg, #DFBD69, #926F34);
     color: #000000;
+    box-shadow: 0 8px 25px rgba(223, 189, 105, 0.3);
   }
   
   .gold-accent {
@@ -123,15 +167,18 @@ body {
   }
   
   .clean-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.05), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(223, 189, 105, 0.2);
     border-radius: 0.75rem;
     padding: 2rem;
     transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
   }
   
   .clean-card:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.1), rgba(0, 0, 0, 0.9));
+    border-color: rgba(223, 189, 105, 0.4);
+    transform: translateY(-2px);
   }
   
   .hero-section {
@@ -140,6 +187,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    background: linear-gradient(135deg, #000000, #1a1a1a, rgba(223, 189, 105, 0.05));
   }
   
   .text-gold {
@@ -151,6 +199,276 @@ body {
   }
   
   .bg-gold {
-    background-color: #DFBD69;
+    background: linear-gradient(135deg, #DFBD69, #926F34);
+  }
+  
+  /* Fix for diacritical marks and letter clipping */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    padding: 0.1em 0;
+    overflow: visible;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
+    font-variant-ligatures: common-ligatures;
+  }
+  
+  /* Ensure proper rendering of Lithuanian characters */
+  * {
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "dlig" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+    font-synthesis: none;
+  }
+  
+  /* Drastic fix for Lithuanian ū character */
+  .lithuanian-text,
+  .gradient-text,
+  h1, h2, h3, h4, h5, h6,
+  p, span, div {
+    font-family: 'Jost', 'Segoe UI', 'DejaVu Sans', 'Liberation Sans', 'Arial Unicode MS', 'Lucida Grande', sans-serif !important;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "dlig" 1, "ccmp" 1, "mark" 1, "mkmk" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+    font-synthesis: none;
+    -webkit-font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "dlig" 1, "ccmp" 1, "mark" 1, "mkmk" 1;
+    -moz-font-feature-settings: "liga" 1, "calt" 1, "kern" 1, "dlig" 1, "ccmp" 1, "mark" 1, "mkmk" 1;
+  }
+  
+  /* Special handling for specific Lithuanian characters */
+  .lithuanian-fix {
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-variant-alternates: normal;
+    font-variant-position: normal;
+  }
+  
+  /* Force Unicode normalization */
+  .gradient-text::before,
+  .gradient-text::after {
+    content: '';
+    unicode-bidi: isolate;
+  }
+  
+  /* Fix for gradient text with diacritical marks */
+  .gradient-text {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-text::before {
+    content: '';
+    position: absolute;
+    top: -0.1em;
+    left: 0;
+    right: 0;
+    bottom: -0.1em;
+    z-index: -1;
+  }
+  
+  /* DRASTIC FIX: Custom Lithuanian character rendering */
+  @font-face {
+    font-family: 'JostLithuanian';
+    src: url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap&subset=latin,latin-ext');
+    font-display: swap;
+    unicode-range: U+0100-017F, U+0180-024F, U+1E00-1EFF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  
+  /* Force specific font for Lithuanian characters */
+  .lithuanian-text,
+  .gradient-text {
+    font-family: 'JostLithuanian', 'Jost', 'Noto Sans', 'Segoe UI', 'DejaVu Sans', 'Arial Unicode MS', monospace !important;
+  }
+  
+  /* Unicode replacement for problematic ū */
+  .gradient-text,
+  h1, h2, h3, h4, h5, h6 {
+    font-variant-numeric: normal;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-position: normal;
+    font-stretch: normal;
+    font-optical-sizing: auto;
+    text-decoration-skip-ink: none;
+    text-underline-position: auto;
+    text-emphasis: none;
+    hanging-punctuation: none;
+    hyphens: none;
+  }
+  
+  /* Last resort: CSS content replacement for ū */
+  .fix-u-macron {
+    position: relative;
+  }
+  
+  .fix-u-macron::before {
+    content: '';
+    position: absolute;
+    top: -0.2em;
+    left: 0;
+    width: 1em;
+    height: 0.1em;
+    background: currentColor;
+    display: none;
+  }
+  
+  /* Force specific rendering context */
+  .gradient-text {
+    contain: layout style;
+    isolation: isolate;
+  }
+  
+  /* ULTIMATE DRASTIC FIX: Replace ū with custom styling */
+  .gradient-text {
+    position: relative;
+    font-family: 'Jost', 'Segoe UI', 'DejaVu Sans', 'Liberation Sans', 'Arial Unicode MS', 'Times New Roman', serif !important;
+  }
+  
+  /* Replace ū with u + macron overlay */
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Apply macron fix to all Lithuanian text */
+  .lithuanian-text::before {
+    content: '';
+    position: absolute;
+    top: -0.1em;
+    left: 0;
+    right: 0;
+    height: 0.05em;
+    background: currentColor;
+    display: none;
+  }
+  
+  /* Force different font stack for problematic characters */
+  .gradient-text, .lithuanian-text {
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif' !important;
+    font-feature-settings: "liga" 0, "calt" 0, "kern" 1, "dlig" 0, "ccmp" 1, "mark" 1, "mkmk" 1 !important;
+    -webkit-font-feature-settings: "liga" 0, "calt" 0, "kern" 1, "dlig" 0, "ccmp" 1, "mark" 1, "mkmk" 1 !important;
+    -moz-font-feature-settings: "liga" 0, "calt" 0, "kern" 1, "dlig" 0, "ccmp" 1, "mark" 1, "mkmk" 1 !important;
+  }
+  
+  /* Footer specific styles */
+  footer {
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  footer h3 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  
+  footer p, footer span, footer a {
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
+  }
+  
+  /* Ensure proper alignment for contact info */
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .footer-contact-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer-contact-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* Jost font utility class */
+  .font-jost {
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  }
+  
+  /* Modern smooth animations */
+  .smooth-appear {
+    animation: smoothAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  @keyframes smoothAppear {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(223, 189, 105, 0.15);
+  }
+  
+  /* Smooth gradient animations */
+  .gradient-animation {
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease-in-out infinite;
+  }
+  
+  @keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Modern glass effect */
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Enhanced card styling */
+  .modern-card {
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.03), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(223, 189, 105, 0.1);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(223, 189, 105, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modern-card:hover::before {
+    opacity: 1;
+  }
+  
+  .modern-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(223, 189, 105, 0.3);
+    box-shadow: 0 25px 50px rgba(223, 189, 105, 0.1);
   }
 }
