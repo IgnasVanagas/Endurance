@@ -471,4 +471,22 @@ body {
     border-color: rgba(223, 189, 105, 0.3);
     box-shadow: 0 25px 50px rgba(223, 189, 105, 0.1);
   }
+  
+  @media (max-width: 600px) {
+    .prod .hero-endurance {
+      letter-spacing: 0.01em !important;
+      font-variant-ligatures: none !important;
+      font-feature-settings: "liga" 0, "calt" 0, "kern" 0 !important;
+      -webkit-font-feature-settings: "liga" 0, "calt" 0, "kern" 0 !important;
+      -moz-font-feature-settings: "liga" 0, "calt" 0, "kern" 0 !important;
+      text-rendering: optimizeLegibility !important;
+      position: relative;
+      z-index: 2;
+    }
+    .prod .hero-endurance::first-letter {
+      letter-spacing: 0.05em !important;
+      margin-right: 0.01em;
+      font-variant-ligatures: none !important;
+    }
+  }
 }

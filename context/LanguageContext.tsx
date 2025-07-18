@@ -22,7 +22,7 @@ const translations = {
     'nav.contact': 'Kontaktai',
     
     // Hero
-    'hero.subtitle': 'Sveiki atvykę į „Faster" ištvermės studiją – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas.',
+    'hero.subtitle': 'Sveiki atvykę į „Faster Endurance Studio" – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas.',
     'hero.start': 'Pradėti treniruotes',
     'hero.learn': 'Kontaktai',
     'hero.members': 'Aktyvūs nariai',
@@ -32,17 +32,17 @@ const translations = {
     
     // About
     'about.title': 'Apie mus',
-    'about.description': 'Sveiki atvykę į „Faster" ištvermės studiją – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas. Tai ne paprastas sporto klubas, o erdvė tiems, kurie siekia geriausių rezultatų. Nesvarbu, ar sieki asmeninio rekordo, ruošiesi varžyboms, ar tiesiog bandai savo galimybes – „Faster" bus tavo patikimas partneris kelyje į aukščiausią sportinį lygį.',
+    'about.description': 'Sveiki atvykę į „Faster Endurance Studio" – vietą, kur mokslas, technologijos ir žmogaus ryžtas padeda peržengti ištvermės ribas. Tai ne paprastas sporto klubas, o erdvė tiems, kurie siekia geriausių rezultatų. Nesvarbu, ar sieki asmeninio rekordo, ruošiesi varžyboms, ar tiesiog bandai savo galimybes – „Faster" bus tavo patikimas partneris kelyje į aukščiausią sportinį lygį.',
     'about.innovation': 'Mokslas ir inovacijos',
-    'about.innovation.desc': '„Faster" tikime, kad ribos skirtos peržengti – ne tik greičio ar ištvermės, bet ir to, ką žmogaus kūnas iš tikrųjų gali pasiekti. Mūsų laboratorija – tai vieta, kur pažangios technologijos susitinka su aistra ištvermės sportui.',
+    'about.innovation.desc': '„Faster Endurance Studio" tikime, kad ribos skirtos peržengti – ne tik greičio ar ištvermės, bet ir to, ką žmogaus kūnas iš tikrųjų gali pasiekti. Mūsų laboratorija – tai vieta, kur pažangios technologijos susitinka su aistra ištvermės sportui.',
     'about.history': 'Mokslas keičia sportą',
     'about.history.desc': 'Mokslas ir technologijos ne kartą pakeitė ištvermės sportą: nuo Rogerio Bannisterio, kuris įveikė 4 minučių mylios barjerą su intervalinėmis treniruotėmis ir blokine periodizacija; Grego LeMondo pergalės „Tour de France" su aerodinaminiu vairu; Graeme\'o Obree valandos rekordų su savo dviračiu „Old Faithful" ir naujomis važiavimo pozicijomis; iki „Team Sky" dominavimo su tiksliomis, galia paremtomis treniruotėmis ir Olavo Aleksanderio Bu norvegiško metodo, kuris padėjo Kristianui Blummenfeldui bei Gustavui Idenui laimėti olimpinį auksą ir pagerinti „Ironman" rekordus.',
     'about.access': 'Prieiga visiems',
-    'about.access.desc': '„Faster" leidžia visų lygių sportininkams naudotis tomis pačiomis pažangiomis testavimo ir treniruočių priemonėmis.',
+    'about.access.desc': '„Faster Endurance Studio" leidžia visų lygių sportininkams naudotis tomis pačiomis pažangiomis testavimo ir treniruočių priemonėmis.',
     'about.philosophy': 'Mūsų filosofija'.normalize('NFC'),
     'about.philosophy.desc': 'Įkvėpimo semiamės iš geriausių, bet kuriame aplinką, kur asmeniniai proveržiai vertinami lygiai kaip pergalės ant pakylos. Tikime, kad tikrasis potencialas dažnai slypi giliau ir gali būti atskleistas su mokslo bei protingos treniruočių sistemos pagalba.',
     'about.conclusion': 'Tavo kelias',
-    'about.conclusion.desc': 'Nesvarbu, ar nori greičiau plaukti, gauti daugiau galios dviratyje, ar finišuoti stipresnis nei bet kada – „Faster" yra čia, kad padėtų tau pasiekti tai, ką iš tiesų gali.',
+    'about.conclusion.desc': 'Nesvarbu, ar nori greičiau plaukti, gauti daugiau galios dviratyje, ar finišuoti stipresnis nei bet kada – „Faster Endurance Studio" yra čia, kad padėtų tau pasiekti tai, ką iš tiesų gali.',
     
     // Services
     'services.title': 'Mūsų'.normalize('NFC'),
@@ -138,7 +138,7 @@ const translations = {
     'contact.form.submit': 'Siųsti žinutę',
     
     // Footer
-    'footer.description': 'Faster Endurance - jūsų kelias į aukščiausius sporto pasiekimus. Prisijunkite prie mūsų bendruomenės ir atsiskleiskite savo potencialą.',
+    'footer.description': 'Faster Endurance Studio - jūsų kelias į aukščiausius sporto pasiekimus. Prisijunkite prie mūsų bendruomenės ir atsiskleiskite savo potencialą.',
     'footer.quick.links': 'Nuorodos',
     'footer.contact': 'Kontaktai',
     'footer.rights': 'Visos teisės saugomos.',
@@ -165,7 +165,7 @@ const translations = {
     'about.title': 'About Us',
     'about.description': 'Welcome to Faster Endurance Studio—where science, technology, and human ambition converge to redefine athletic performance. This isn\'t just a sports club; it\'s a sanctuary for the relentless in pursuit of peak human potential. Whether you\'re chasing a personal best, preparing for your next race, or simply exploring your limits, Faster is your ultimate partner in performance.',
     'about.innovation': 'Science and Innovation',
-    'about.innovation.desc': 'At Faster, we believe in breaking boundaries—not just of speed or stamina, but of what the human body is capable of. Our lab is a playground for innovation, blending state-of-the-art technology with a deep passion for endurance sports.',
+    'about.innovation.desc': 'At Faster Endurance Studio, we believe in breaking boundaries—not just of speed or stamina, but of what the human body is capable of. Our lab is a playground for innovation, blending state-of-the-art technology with a deep passion for endurance sports.',
     'about.history': 'Science Changes Sport',
     'about.history.desc': 'Science and technology have revolutionized endurance sports time and time again: from Roger Bannister breaking the 4-minute mile barrier through the introduction of block periodization and interval training; to Greg LeMond\'s Tour de France victory using aero bars in a final time trial; to Graeme Obree\'s hour records on a self-built Old Faithful bike with revolutionary riding positions; to Team Sky\'s dominance through meticulous, power-based training; to Olav Aleksander Bu\'s metabolic optimization using the Norwegian method, helping athletes like Kristian Blummenfelt and Gustav Iden win Olympic gold and set Ironman records.',
     'about.access': 'Access for All',
@@ -269,7 +269,7 @@ const translations = {
     'contact.form.submit': 'Send Message',
     
     // Footer
-    'footer.description': 'Faster Endurance - your path to the highest sports achievements. Join our community and unlock your potential.',
+    'footer.description': 'Faster Endurance Studio - your path to the highest sports achievements. Join our community and unlock your potential.',
     'footer.quick.links': 'Links',
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',

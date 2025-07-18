@@ -33,9 +33,9 @@ export default function Hero() {
           >
             <div className="mb-8">
               <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-                <span className="gradient-text">Faster</span>
+                <span className="gradient-text">Faster Endurance</span>
                 <br />
-                <span className="text-white">Endurance</span>
+                <span className="text-white hero-endurance">Studio</span>
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto">

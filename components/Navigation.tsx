@@ -21,7 +21,7 @@ export default function Navigation() {
             <Link href="/">
               <img 
                 src="/faster-vektoriniai-08.png" 
-                alt="Faster Endurance" 
+                alt="Faster Endurance Studio" 
                 className="h-12 w-auto transition-transform duration-300 hover:scale-105"
               />
             </Link>

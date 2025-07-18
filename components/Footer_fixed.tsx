@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <img 
               src="/faster-vektoriniai-08.png" 
-              alt="Faster Endurance Studio" 
+              alt="Faster Endurance" 
               className="h-12 w-auto mb-4"
             />
             <p className="text-gray-400 mb-4 max-w-md font-jost">
@@ -61,8 +61,8 @@ export default function Footer() {
                 <span className="flex-shrink-0 text-[#DFBD69] text-lg">📍</span>
                 <div className="flex flex-col">
                   <span className="text-white font-medium mb-1 font-jost">Adresas</span>
-                  <span className="text-sm leading-relaxed font-jost">K. Kalinausko 2B-100</span>
-                  <span className="text-sm font-jost">Vilnius</span>
+                  <span className="text-sm leading-relaxed font-jost">Didžioji g. 13-9</span>
+                  <span className="text-sm font-jost">LT-01128 Vilnius</span>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p className="font-jost">&copy; 2025 Faster Endurance Studio. {t('footer.rights')}</p>
+          <p className="font-jost">&copy; 2025 Faster Endurance. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>

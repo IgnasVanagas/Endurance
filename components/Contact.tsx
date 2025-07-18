@@ -39,8 +39,8 @@ export default function Contact() {
                   <span className="text-3xl">📍</span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#DFBD69] mb-4">{t('contact.address')}</h3>
-                <p className="text-xl text-gray-300">Didžioji g. 13-9</p>
-                <p className="text-xl text-gray-300">LT-01128 Vilnius</p>
+                <p className="text-xl text-gray-300">K. Kalinausko 2B-100</p>
+                <p className="text-xl text-gray-300">Vilnius</p>
               </div>
 
               <div className="text-center">
