@@ -96,7 +96,7 @@ export default function Calendar({
                           ? 'bg-gradient-to-r from-[#DFBD69] to-[#926F34] text-black'
                           : hasSlots 
                             ? 'bg-gray-800 text-white hover:bg-gray-700'
-                            : 'bg-gray-900 text-gray-500 cursor-not-allowed'
+                            : 'bg-[#272936] text-gray-500 cursor-not-allowed'
                       }`}
                       disabled={!hasSlots}
                       whileHover={hasSlots ? { scale: 1.05 } : {}}
@@ -143,7 +143,7 @@ export default function Calendar({
                 <select
                   value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                  className="w-full px-4 py-3 bg-[#272936] border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
                 >
                   <option value="">{t('calendar.select.service')}</option>
                   {services.map(service => (
@@ -153,7 +153,7 @@ export default function Calendar({
               </div>
 
               {/* Selected Details */}
-              <div className="mb-6 p-4 bg-black/40 rounded-lg border border-[#DFBD69]/30">
+              <div className="mb-6 p-4 bg-[#272936]/40 rounded-lg border border-[#DFBD69]/30">
                 <h4 className="font-semibold mb-2 text-[#DFBD69]">{t('calendar.selected')}</h4>
                 <div className="space-y-1 text-sm">
                   <div>{t('calendar.date')} <span className="text-[#DFBD69]">{selectedDate || 'Nepasirinkta'}</span></div>
@@ -170,7 +170,7 @@ export default function Calendar({
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#272936] border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
                     placeholder={t('calendar.name.placeholder')}
                   />
                 </div>
@@ -180,7 +180,7 @@ export default function Calendar({
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#272936] border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
                     placeholder={t('calendar.email.placeholder')}
                   />
                 </div>
@@ -190,7 +190,7 @@ export default function Calendar({
                   </label>
                   <input
                     type="tel"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#272936] border border-gray-700 rounded-lg text-white transition-all focus:border-[#DFBD69] focus:outline-none"
                     placeholder={t('calendar.phone.placeholder')}
                   />
                 </div>

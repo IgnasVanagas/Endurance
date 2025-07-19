@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ children, className = '' }: LayoutProps) {
   return (
-    <main className={`bg-black text-white min-h-screen ${className}`}>
+    <main className={`bg-[#272936] text-white min-h-screen ${className}`}>
       <Navigation />
       {children}
       <Footer />

@@ -42,7 +42,7 @@ export default function Athletes() {
   ]
   
   return (
-    <section id="athletes" className="py-24 bg-black">
+    <section id="athletes" className="py-24 bg-[#272936]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
