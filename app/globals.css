@@ -2,8 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts with full character support */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap&subset=latin,latin-ext');
+/* Local Jost Font Faces */
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/Jost-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/Jost-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Fallback static fonts for better browser support */
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/Jost/static/Jost-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply Jost font to body and common elements */
+body {
+  font-family: 'Jost', system-ui, sans-serif;
+}
+
+.font-jost {
+  font-family: 'Jost', system-ui, sans-serif !important;
+}
 
 * {
   margin: 0;
@@ -266,8 +346,10 @@ body {
   /* DRASTIC FIX: Custom Lithuanian character rendering */
   @font-face {
     font-family: 'JostLithuanian';
-    src: url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap&subset=latin,latin-ext');
+    src: url('/Jost/Jost-VariableFont_wght.ttf') format('truetype-variations'),
+         url('/Jost/static/Jost-Regular.ttf') format('truetype');
     font-display: swap;
+    font-weight: 100 900;
     unicode-range: U+0100-017F, U+0180-024F, U+1E00-1EFF, U+2C60-2C7F, U+A720-A7FF;
   }
   

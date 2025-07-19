@@ -1,11 +1,5 @@
 import './globals.css'
-import { Jost } from 'next/font/google'
 import { LanguageProvider } from '../context/LanguageContext'
-
-const jost = Jost({ 
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
-})
 
 export const metadata = {
   title: 'Faster Endurance Studio - Push Your Limits',
@@ -23,7 +17,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`prod ${jost.className}`}>
+      <body className="prod font-jost">
         <LanguageProvider>
           {children}
         </LanguageProvider>
