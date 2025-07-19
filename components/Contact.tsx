@@ -36,18 +36,6 @@ export default function Contact() {
       }
     }
   }
-
-  const floatVariants = {
-    animate: {
-      y: [0, -10, 0],
-      rotate: [0, 5, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  }
   
   return (
     <>
@@ -60,7 +48,7 @@ export default function Contact() {
         viewport={{ once: true }}
       />
       
-      <section id="contact" className="py-32 bg-gradient-to-br from-[#272936] via-[#272936] to-[#272936] text-white relative overflow-hidden">
+      <section id="contact" className="py-4 md:py-16 bg-gradient-to-br from-[#272936] via-[#272936] to-[#272936] text-white relative overflow-hidden">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-5">
           <motion.div 
@@ -112,7 +100,7 @@ export default function Contact() {
               </motion.span>
             </h2>
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -136,17 +124,20 @@ export default function Contact() {
                   className="text-center group"
                 >
                   <motion.div 
-                    variants={floatVariants}
-                    animate="animate"
                     className="glass-card hover-lift w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 magnetic-hover"
                     whileHover={{ 
-                      scale: 1.15, 
-                      rotateY: 180,
+                      scale: 1.05,
+                      rotate: 2,
                       boxShadow: "0 20px 40px rgba(223, 189, 105, 0.4)"
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-3xl">📍</span>
+                    <motion.div 
+                      className="text-3xl"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                    >
+                      📍
+                    </motion.div>
                   </motion.div>
                   <motion.h3 
                     className="text-2xl font-bold text-[#DFBD69] mb-4"
@@ -170,18 +161,20 @@ export default function Contact() {
                   className="text-center group"
                 >
                   <motion.div 
-                    variants={floatVariants}
-                    animate="animate"
-                    style={{ animationDelay: '1s' }}
                     className="glass-card hover-lift w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 magnetic-hover"
                     whileHover={{ 
-                      scale: 1.15, 
-                      rotateY: 180,
+                      scale: 1.05,
+                      rotate: -2,
                       boxShadow: "0 20px 40px rgba(223, 189, 105, 0.4)"
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-3xl">📞</span>
+                    <motion.div 
+                      className="text-3xl"
+                      whileHover={{ scale: 1.05, rotate: -2 }}
+                    >
+                      📞
+                    </motion.div>
                   </motion.div>
                   <motion.h3 
                     className="text-2xl font-bold text-[#DFBD69] mb-4"
@@ -207,18 +200,20 @@ export default function Contact() {
                   className="text-center group"
                 >
                   <motion.div 
-                    variants={floatVariants}
-                    animate="animate"
-                    style={{ animationDelay: '2s' }}
                     className="glass-card hover-lift w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 magnetic-hover"
                     whileHover={{ 
-                      scale: 1.15, 
-                      rotateY: 180,
+                      scale: 1.05,
+                      rotate: 2,
                       boxShadow: "0 20px 40px rgba(223, 189, 105, 0.4)"
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-3xl">📧</span>
+                    <motion.div 
+                      className="text-3xl"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                    >
+                      📧
+                    </motion.div>
                   </motion.div>
                   <motion.h3 
                     className="text-2xl font-bold text-[#DFBD69] mb-4"

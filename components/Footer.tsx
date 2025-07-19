@@ -11,7 +11,7 @@ export default function Footer() {
       {/* Section divider */}
       <div className="section-divider"></div>
       
-      <footer className="bg-black/95 text-white py-20 font-jost relative overflow-hidden">
+      <footer className="bg-black/95 text-white py-12 font-jost relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#DFBD69]/5 to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
@@ -52,6 +52,16 @@ export default function Footer() {
               <ul className="space-y-3 font-jost">
                 <li>
                   <motion.a 
+                    href="/" 
+                    className="text-gray-400 hover:text-[#DFBD69] transition-all duration-300 font-jost flex items-center group"
+                    whileHover={{ x: 4 }}
+                  >
+                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    {t('nav.home')}
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a 
                     href="#about" 
                     className="text-gray-400 hover:text-[#DFBD69] transition-all duration-300 font-jost flex items-center group"
                     whileHover={{ x: 4 }}
@@ -62,32 +72,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <motion.a 
-                    href="#services" 
+                    href="#contact" 
                     className="text-gray-400 hover:text-[#DFBD69] transition-all duration-300 font-jost flex items-center group"
                     whileHover={{ x: 4 }}
                   >
                     <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {t('nav.services')}
-                  </motion.a>
-                </li>
-                <li>
-                  <motion.a 
-                    href="#calendar" 
-                    className="text-gray-400 hover:text-[#DFBD69] transition-all duration-300 font-jost flex items-center group"
-                    whileHover={{ x: 4 }}
-                  >
-                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {t('nav.calendar')}
-                  </motion.a>
-                </li>
-                <li>
-                  <motion.a 
-                    href="#athletes" 
-                    className="text-gray-400 hover:text-[#DFBD69] transition-all duration-300 font-jost flex items-center group"
-                    whileHover={{ x: 4 }}
-                  >
-                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {t('nav.athletes')}
+                    {t('nav.contact')}
                   </motion.a>
                 </li>
               </ul>
@@ -108,7 +98,7 @@ export default function Footer() {
                 >
                   <span className="flex-shrink-0 text-[#DFBD69] text-lg group-hover:scale-110 transition-transform duration-300">📍</span>
                   <div className="flex flex-col">
-                    <span className="text-white font-medium mb-1 font-jost">Adresas</span>
+                    <span className="text-white font-medium mb-1 font-jost">{t('contact.address')}</span>
                     <span className="text-sm leading-relaxed font-jost">K. Kalinausko 2B-100</span>
                     <span className="text-sm font-jost">Vilnius</span>
                   </div>
@@ -119,7 +109,7 @@ export default function Footer() {
                 >
                   <span className="flex-shrink-0 text-[#DFBD69] text-lg group-hover:scale-110 transition-transform duration-300">📞</span>
                   <div className="flex flex-col">
-                    <span className="text-white font-medium mb-1 font-jost">Telefonas</span>
+                    <span className="text-white font-medium mb-1 font-jost">{t('contact.phone')}</span>
                     <motion.a 
                       href="tel:+37060505649"
                       className="text-sm font-jost hover:text-[#DFBD69] transition-colors duration-300"
@@ -135,7 +125,7 @@ export default function Footer() {
                 >
                   <span className="flex-shrink-0 text-[#DFBD69] text-lg group-hover:scale-110 transition-transform duration-300">📧</span>
                   <div className="flex flex-col">
-                    <span className="text-white font-medium mb-1 font-jost">El. paštas</span>
+                    <span className="text-white font-medium mb-1 font-jost">{t('contact.email')}</span>
                     <motion.a 
                       href="mailto:info@faster.fitness"
                       className="text-sm font-jost hover:text-[#DFBD69] transition-colors duration-300"
@@ -158,7 +148,7 @@ export default function Footer() {
             className="border-t border-gray-800 mt-12 pt-8 text-center"
           >
             <p className="text-gray-500 text-sm font-jost">
-              © 2024 Faster Endurance Studio. Visos teisės saugomos.
+              © 2025 Faster Endurance Studio. {t('footer.rights')}
             </p>
           </motion.div>
         </div>

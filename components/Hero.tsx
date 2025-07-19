@@ -167,7 +167,7 @@ export default function Hero() {
             </motion.div>
             <motion.p 
               variants={subtitleVariants}
-              className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto"
+              className="text-base md:text-lg lg:text-xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto"
             >
               {t('hero.subtitle')}
             </motion.p>

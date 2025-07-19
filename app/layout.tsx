@@ -4,6 +4,11 @@ import { LanguageProvider } from '../context/LanguageContext'
 export const metadata = {
   title: 'Faster Endurance Studio - Push Your Limits',
   description: 'Join our community of endurance athletes and discover what you\'re truly capable of',
+  icons: {
+    icon: '/faster-vektoriniai-06.png',
+    shortcut: '/faster-vektoriniai-06.png',
+    apple: '/faster-vektoriniai-06.png',
+  },
 }
 
 export default function RootLayout({

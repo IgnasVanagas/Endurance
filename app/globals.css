@@ -114,7 +114,7 @@ body {
 
 /* Smooth transitions for all elements */
 * {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 /* Ultra-smooth scrolling */
@@ -123,14 +123,21 @@ html {
   overflow-x: hidden;
 }
 
-/* Custom scrolling physics */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: auto;
+/* Optimized mobile performance */
+@media (max-width: 768px) {
+  * {
+    transition: all 0.15s ease;
   }
   
-  * {
-    scroll-behavior: smooth;
+  /* Disable complex animations on mobile */
+  .float-animation,
+  .subtle-float {
+    animation: none;
+  }
+  
+  /* Simplified hover states for mobile */
+  .magnetic-hover:hover {
+    transform: translateY(-2px);
   }
 }
 
@@ -199,7 +206,7 @@ html {
   /* Section dividers */
   .section-divider {
     position: relative;
-    margin: 10rem 0;
+    margin: 2rem 0;
     height: 2px;
     background: #cb9c52;
     max-width: 300px;
@@ -207,22 +214,21 @@ html {
     margin-right: auto;
   }
 
-  /* Floating animation */
+  /* Simplified floating animation for better performance */
   @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(1deg); }
-    66% { transform: translateY(5px) rotate(-1deg); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 
   .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  /* Advanced scroll animations */
+  /* Optimized scroll animations */
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -233,64 +239,33 @@ html {
   @keyframes fadeInScale {
     from {
       opacity: 0;
-      transform: scale(0.9) translateY(20px);
+      transform: scale(0.95);
     }
     to {
       opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: scale(1);
     }
   }
 
-  @keyframes slideInFromLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInFromRight {
-    from {
-      opacity: 0;
-      transform: translateX(60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* Parallax-like movement for background elements */
-  @keyframes subtleFloat {
-    0%, 100% { 
-      transform: translateY(0px) translateX(0px) rotate(0deg);
-    }
-    25% { 
-      transform: translateY(-8px) translateX(4px) rotate(0.5deg);
-    }
-    50% { 
-      transform: translateY(-4px) translateX(-2px) rotate(0deg);
-    }
-    75% { 
-      transform: translateY(6px) translateX(2px) rotate(-0.5deg);
-    }
-  }
-
-  .subtle-float {
-    animation: subtleFloat 12s ease-in-out infinite;
-  }
-
-  /* Advanced hover states with magnetic effect */
+  /* Simplified magnetic hover for better performance */
   .magnetic-hover {
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.2s ease;
   }
 
   .magnetic-hover:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: brightness(1.1);
+    transform: translateY(-4px);
+  }
+
+  /* Mobile-optimized animations */
+  @media (max-width: 768px) {
+    .magnetic-hover:hover {
+      transform: translateY(-2px);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
   }
   
   .bg-gold-gradient {
